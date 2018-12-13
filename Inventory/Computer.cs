@@ -4,12 +4,17 @@ using System.Text;
 
 namespace Inventory
 {
+    public enum OperatingSystem{
+        Linux = 1,
+        Windows = 2,
+        MacOS = 3
+    }
     public class Computer:TechnologicalEquipment
     {
-     public string OperatingSystem { get; set; } 
+     public OperatingSystem OperatingSystem { get; set; } 
      public bool Portable { get; set; }  
 
-    public Computer(int serialNumber, string description, DateTime datePurchased, int warrantyInMonths, decimal priceWhenPurchased, string manufacturer, bool containsABattery, string operatingSystem, bool portable)
+    public Computer(Guid serialNumber, string description, DateTime datePurchased, int warrantyInMonths, decimal priceWhenPurchased, Manufacturer manufacturer, bool containsABattery, OperatingSystem operatingSystem, bool portable)
     :base(serialNumber,description,datePurchased,warrantyInMonths,priceWhenPurchased,manufacturer,containsABattery)
     {
         OperatingSystem = operatingSystem;

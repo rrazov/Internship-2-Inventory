@@ -9,13 +9,12 @@ namespace Inventory
         private readonly string manufacturer;
 
         public bool ContainsABattery { get; set; }
-        public TechnologicalEquipment(int serialNumber, string description, DateTime datePurchased, int warrantyInMonths, decimal priceWhenPurchased, string manufacturer, bool containsABattery)
+        public TechnologicalEquipment(Guid serialNumber, string description, DateTime datePurchased, int warrantyInMonths, decimal priceWhenPurchased, Manufacturer manufacturer, bool containsABattery)
         :base(serialNumber,description,datePurchased,warrantyInMonths,priceWhenPurchased,manufacturer)
         {
             ContainsABattery = containsABattery;
         
         }
     }
-
     
 }

@@ -10,7 +10,7 @@ namespace Inventory
         public int Mileage { get; set; }
 
 
-        public Vehicle(int serialNumber, string description, DateTime datePurchased, int warrantyInMonths, decimal priceWhenPurchased, string manufacturer, DateTime licenseExpireDate, int mileage)
+        public Vehicle(Guid serialNumber, string description, DateTime datePurchased, int warrantyInMonths, decimal priceWhenPurchased, Manufacturer manufacturer, DateTime licenseExpireDate, int mileage)
         :base(serialNumber,description,datePurchased,warrantyInMonths,priceWhenPurchased,manufacturer)
         {
             LicenseExpireDate = licenseExpireDate;
