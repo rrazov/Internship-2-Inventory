@@ -7,7 +7,7 @@ namespace Inventory
     public enum Manufacturer {
             // for Vehicle
             Toyota = 1,
-            Bmw = 2,
+            BMW = 2,
             Mercedes = 3,
             Opel = 4,
             Fiat = 5,
