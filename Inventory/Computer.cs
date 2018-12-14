@@ -20,5 +20,11 @@ namespace Inventory
         OperatingSystem = operatingSystem;
         Portable = portable;
     }
+    public void PrintBySerialNumber()
+        {
+            Console.WriteLine("----- Computer -----");
+            Console.WriteLine($" Description: {Description}\n Date purchased: {DatePurchased}\n Warranty in months: {WarrantyInMonths}\n Price when purchased: {PriceWhenPurchased}\n Manufacturer: {Manufacturer}\n Contains a battery: {ContainsABattery}\n Operating system: {OperatingSystem}\n Portable: {Portable}");
+        }
+
     }
 }

@@ -16,6 +16,12 @@ namespace Inventory
             LicenseExpireDate = licenseExpireDate;
             Mileage = mileage;
         }
+
+        public void PrintBySerialNumber()
+        {
+            Console.WriteLine("----- Vehicle -----");
+            Console.WriteLine($" Description: {Description}\n Date purchased: {DatePurchased}\n Warranty in months: {WarrantyInMonths}\n Price when purchased: {PriceWhenPurchased}\n Manufacturer: {Manufacturer}\n License expirate date: {LicenseExpireDate}\n Mileage: {Mileage}\n");
+        }
         
     }
 }
