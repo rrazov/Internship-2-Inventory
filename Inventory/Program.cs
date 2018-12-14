@@ -16,6 +16,10 @@ namespace Inventory
 
             do
             {
+                foreach (var item in vehicles)
+                {
+                    System.Console.WriteLine(item.SerialNumber);
+                }
                 Console.WriteLine("\n------- Inventory -------");
                 Console.WriteLine("Input the following number for the desired changes: ");                
                 Console.WriteLine("(1) Add a new VEHICLE");
@@ -28,10 +32,12 @@ namespace Inventory
                 Console.WriteLine("(8) Search computer by operating system");
                 Console.WriteLine("(9) Print all users of mobile phone whose warranty expire for certain year:");
                 Console.WriteLine("(10) Print all vehicles whose license plate expire in the next month:");
+                Console.WriteLine("(11) Remove VEHICLE");
+                Console.WriteLine("(12) Remove COMPUTER");
+                Console.WriteLine("(13) Remove MOBILE PHONE");
                 Console.WriteLine("(20) Exit");
                 Console.WriteLine("-----------------------------");         
                 Console.Write("Input the number: "); inputNumber =Console.ReadLine(); inputNumber.Replace(" ","");
-
 
 
                 switch (inputNumber)
@@ -39,7 +45,7 @@ namespace Inventory
                      case "1":
                      {
                         var serialNumber = Guid.NewGuid();
-                        System.Console.Write("Description: "); var description = Console.ReadLine(); description.Replace(" ","");
+                        Console.Write("Description: "); var description = Console.ReadLine(); description.Replace(" ","");
                         DateTime datePurchased = DateTime.Now;
                         Console.Write("Warranty in months: "); var warrantyInMonths = Console.ReadLine(); warrantyInMonths.Replace(" ","");
                         Console.Write("Price: "); var priceWhenPurchased = Console.ReadLine(); priceWhenPurchased.Replace(" ","");
@@ -60,7 +66,7 @@ namespace Inventory
                      case "2":
                      {
                         var serialNumber = Guid.NewGuid();
-                        System.Console.Write("Description: "); var description = Console.ReadLine(); description.Replace(" ","");
+                        Console.Write("Description: "); var description = Console.ReadLine(); description.Replace(" ","");
                         DateTime datePurchased = DateTime.Now;
                         Console.Write("Warranty in months: "); var warrantyInMonths = Console.ReadLine(); warrantyInMonths.Replace(" ","");
                         Console.Write("Price: "); var priceWhenPurchased = Console.ReadLine(); priceWhenPurchased.Replace(" ","");
@@ -83,7 +89,7 @@ namespace Inventory
                      case "3":
                      {
                         var serialNumber = Guid.NewGuid();
-                        System.Console.Write("Description: "); var description = Console.ReadLine(); description.Replace(" ","");
+                        Console.Write("Description: "); var description = Console.ReadLine(); description.Replace(" ","");
                         DateTime datePurchased = DateTime.Now;
                         Console.Write("Warranty in months: "); var warrantyInMonths = Console.ReadLine(); warrantyInMonths.Replace(" ","");
                         Console.Write("Price: "); var priceWhenPurchased = Console.ReadLine(); priceWhenPurchased.Replace(" ","");
@@ -212,12 +218,54 @@ namespace Inventory
                             }
                         }
                         break;
-
                         
                      }
 
+                     case "11":
+                     {
+                        Console.Write("Input serial number: "); var inputSerialNumber =Console.ReadLine(); inputSerialNumber.Replace(" ","");
+                        Guid guidSerialNumber = new Guid(inputSerialNumber);
+                        foreach (var vehicle in vehicles)
+                        {
+                            if (guidSerialNumber == vehicle.SerialNumber)
+                            {
+                                vehicles.Remove(vehicle);
+                                break;
+                            }
+                        }
+                         break;
+                     }
 
-                    
+                     case "12":
+                     {
+                        Console.Write("Input serial number: "); var inputSerialNumber =Console.ReadLine(); inputSerialNumber.Replace(" ","");
+                        Guid guidSerialNumber = new Guid(inputSerialNumber);
+                        foreach (var computer in computers)
+                        {
+                            if (guidSerialNumber == computer.SerialNumber)
+                            {
+                                computers.Remove(computer);
+                                break;
+                            }
+                        }
+                         break;
+                     }
+
+                     case "13":
+                     {
+                        Console.Write("Input serial number: "); var inputSerialNumber =Console.ReadLine(); inputSerialNumber.Replace(" ","");
+                        Guid guidSerialNumber = new Guid(inputSerialNumber);
+                        foreach (var mobilePhone in mobilePhones)
+                        {
+                            if (guidSerialNumber == mobilePhone.SerialNumber)
+                            {
+                                mobilePhones.Remove(mobilePhone);
+                                break;
+                            }
+                        }
+                         break;
+                     }
+               
                 }
 
                 
