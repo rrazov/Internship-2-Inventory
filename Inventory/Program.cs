@@ -25,12 +25,14 @@ namespace Inventory
                 Console.WriteLine("(5) Print all computer whose warranty expire for certain year:");
                 Console.WriteLine("(6) Print how many pieces of technological equipment have batteries");
                 Console.WriteLine("(7) Search mobile phone by manufacturer");
-                Console.WriteLine("(8) Search mobile phone by operating system");
+                Console.WriteLine("(8) Search computer by operating system");
                 Console.WriteLine("(9) Print all users of mobile phone whose warranty expire for certain year:");
                 Console.WriteLine("(10) Print all vehicles whose license plate expire in the next month:");
                 Console.WriteLine("(20) Exit");
                 Console.WriteLine("-----------------------------");         
                 Console.Write("Input the number: "); inputNumber =Console.ReadLine(); inputNumber.Replace(" ","");
+
+
 
                 switch (inputNumber)
                 {
@@ -117,7 +119,7 @@ namespace Inventory
                         {
                             if(calculateYearOfWarrantyExpiration(computer,computer.WarrantyInMonths,inputYear) == inputYear)
                             {
-                                computer.PrintBySerialNumber();
+                                computer.PrintComputer();
                             }
                         }
                         break;
@@ -157,7 +159,7 @@ namespace Inventory
                         {
                             if (manufacturer2 == mobilePhone.Manufacturer)
                             {
-                                mobilePhone.PrintBySerialNumber();
+                                mobilePhone.PrintMobilePhone();
                             }
                         }
 
@@ -174,7 +176,7 @@ namespace Inventory
                         {
                             if (operatingSystem2 == computer.OperatingSystem)
                             {
-                                computer.PrintBySerialNumber();
+                                computer.PrintComputer();
                             }
                         }
 
@@ -206,7 +208,7 @@ namespace Inventory
                             result = monthForCheck - vehicle.LicenseExpireDate;
                             if(result.TotalDays < 30 && result.TotalDays > 0)
                             {
-                                vehicle.PrintBySerialNumber();
+                                vehicle.PrintVehicle();
                             }
                         }
                         break;
@@ -227,7 +229,7 @@ namespace Inventory
         {
             var allVehicles = new List<Vehicle>()
             {
-                new Vehicle(Guid.NewGuid(),"Speed car",new DateTime(2018,1,2),60,1000000,Manufacturer.Mercedes,new DateTime(2018,12,20),5000),
+                new Vehicle(Guid.NewGuid(),"Speed car",new DateTime(2018,1,2),60,1000000,Manufacturer.Mercedes,new DateTime(2018,12,20),10000),
                 new Vehicle(Guid.NewGuid(),"Family car",new DateTime(1997,9,9),60,200000,Manufacturer.Opel,new DateTime(2020,1,2),350000),
                 new Vehicle(Guid.NewGuid(),"Car",new DateTime(1999,10,10),60,300000,Manufacturer.Toyota,new DateTime(2021,10,10),250000),
                 new Vehicle(Guid.NewGuid(),"Car",new DateTime(2001,2,2),60,100000,Manufacturer.BMW,new DateTime(2018,6,11),200000),
@@ -287,7 +289,8 @@ namespace Inventory
             {
                 if (item.SerialNumber == inputSerialNumber)
                 {
-                    item.PrintBySerialNumber(); 
+                    
+                    item.PrintVehicle(); 
                     break;
                 }
             }
@@ -296,7 +299,7 @@ namespace Inventory
             {
                 if (item.SerialNumber == inputSerialNumber)
                 {
-                    item.PrintBySerialNumber();
+                    item.PrintComputer();
                     break;
                 }
             }
@@ -305,7 +308,7 @@ namespace Inventory
             {
                 if (item.SerialNumber == inputSerialNumber)
                 {
-                    item.PrintBySerialNumber();
+                    item.PrintMobilePhone();
                     break;
                 }
             }

@@ -20,11 +20,31 @@ namespace Inventory
         OperatingSystem = operatingSystem;
         Portable = portable;
     }
-    public void PrintBySerialNumber()
-        {
-            Console.WriteLine("----- Computer -----");
-            Console.WriteLine($" Description: {Description}\n Date purchased: {DatePurchased}\n Warranty in months: {WarrantyInMonths}\n Price when purchased: {PriceWhenPurchased}\n Manufacturer: {Manufacturer}\n Contains a battery: {ContainsABattery}\n Operating system: {OperatingSystem}\n Portable: {Portable}");
-        }
+    public void PrintComputer()
+    {
+        decimal price = PriceWhenPurchased;
+            decimal price30PercentLess = price - (price * (decimal)0.3);
 
+            DateTime localDate = DateTime.Now;
+            TimeSpan result = localDate - DatePurchased;
+            var month = result.TotalDays;
+
+            for (int i = 0; i <= month; i++)
+            {
+                if (price <= price30PercentLess)
+                {
+                    break;
+                }
+                else
+                {
+                    price = price - (price * (decimal)0.05);
+                }
+            }
+        var diffPrice = PriceWhenPurchased - price;
+        Console.WriteLine("\n----- Computer -----");
+        Console.WriteLine($" Description: {Description}\n Date purchased: {DatePurchased}\n Warranty in months: {WarrantyInMonths}\n Price when purchased: {PriceWhenPurchased}\n Manufacturer: {Manufacturer}\n Contains a battery: {ContainsABattery}\n Operating system: {OperatingSystem}\n Portable: {Portable}");
+        Console.WriteLine($" Price now: {Decimal.Round(price)} \n DiffPrice: {Decimal.Round(diffPrice)}");
+    
+    }
     }
 }
