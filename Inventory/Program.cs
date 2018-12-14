@@ -16,10 +16,7 @@ namespace Inventory
 
             do
             {
-                foreach (var item in vehicles)
-                {
-                    System.Console.WriteLine(item.SerialNumber);
-                }
+                
                 Console.WriteLine("\n------- Inventory -------");
                 Console.WriteLine("Input the following number for the desired changes: ");                
                 Console.WriteLine("(1) Add a new VEHICLE");
@@ -38,7 +35,6 @@ namespace Inventory
                 Console.WriteLine("(20) Exit");
                 Console.WriteLine("-----------------------------");         
                 Console.Write("Input the number: "); inputNumber =Console.ReadLine(); inputNumber.Replace(" ","");
-
 
                 switch (inputNumber)
                 {
@@ -129,7 +125,6 @@ namespace Inventory
                             }
                         }
                         break;
-
                         
                      }
 
@@ -185,7 +180,6 @@ namespace Inventory
                                 computer.PrintComputer();
                             }
                         }
-
                         break;
                      }
 
